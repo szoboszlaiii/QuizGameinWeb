@@ -1,0 +1,28 @@
+.headclass{ 
+    height:auto; 
+    min-height:100vh; 
+    background-image:url(/assets/background.jpg); 
+    background-size:cover; 
+    background-position:center; 
+}  
+
+.menuContainer {
+  position: absolute;
+   left: 50%; 
+   top: 15%; 
+   transform: translate (-50%, -50%);
+   border: 5px solid white;
+   padding: 5px 30px;
+  }
+
+h1{
+ color:snow;
+ text-align: center;
+ font-size: 30px;
+}
+
+label{
+      font-family: Inconsolata;
+      text-align: left;
+      color: Snow;
+    }
