@@ -12,13 +12,15 @@ import { MenuComponent } from './menu/menu.component';
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './material.module';
+import { GameMenuComponent } from './gamemenu/gamemenu.component';
  
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     MenuComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    GameMenuComponent,
   ],
   imports: [
     BrowserModule,

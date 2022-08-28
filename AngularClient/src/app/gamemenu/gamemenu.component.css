@@ -1,0 +1,47 @@
+.headclass{ 
+    height:auto; 
+    min-height:100vh; 
+    background-image:url(/assets/background.jpg); 
+    background-size:cover; 
+    background-position:center; 
+}  
+
+.menuContainer {
+    display: block;
+    position: relative;
+    width: auto;
+    margin: 0 850px;
+  }
+
+ ul {
+      padding: 250px 0;
+      width: 100%;
+      position: relative;
+      text-align: center;
+      top: 35px;
+      list-style-type: none;
+    }
+
+li {
+        position: relative;
+        font-family: Inconsolata;
+        font-size: 50px;
+        margin-right: 30px;
+        box-sizing: border-box;
+        width: 125px;
+        letter-spacing: 3px;
+        text-align: center;
+        line-height: 50px;
+        margin: 0 0 40px 0;
+}
+
+li:hover {
+    background: #F0E68C;
+    width: max-content;
+    height: max-content;
+ }
+
+a {
+      color: Snow;
+      text-decoration: none;
+    }

@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
       username: new FormControl("", [Validators.required]),
       password: new FormControl("", [Validators.required])
     })
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'gamemenu';
   }
 
   validateControl = (controlName: string) => {
@@ -49,6 +49,7 @@ export class LoginComponent implements OnInit {
     .subscribe({
       next: (res:AuthResponseDto) => {
        localStorage.setItem("token", res.token);
+       localStorage.setItem("currentUser", login.username);
        this.authService.sendAuthStateChangeNotification(res.isAuthSuccessful);
        this.router.navigate([this.returnUrl]);
     },
