@@ -1,7 +1,8 @@
-import { Company } from './../../_interfaces/company.model';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'; 
 import { EnvironmentUrlService } from './environment-url.service';
+import { Questions } from 'src/app/_interfaces/questions/question';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +11,14 @@ export class RepositoryService {
 
   constructor(private http: HttpClient, private envUrl: EnvironmentUrlService) { }
 
-  public getData = (route: string) => {
-    return this.http.get<Company[]>(this.createCompleteRoute(route, this.envUrl.urlAddress));
+  requestUrl = this.envUrl.urlAddress + '/api/questions/getquestions';
+
+  public GetQuestions() {
+    return this.http.get<Questions>(this.requestUrl, {headers: { Authorization: `Bearer ${localStorage.getItem("token")}`}});
   }
- 
+
   private createCompleteRoute = (route: string, envAddress: string) => {
     return `${envAddress}/${route}`;
   }
+
 }
