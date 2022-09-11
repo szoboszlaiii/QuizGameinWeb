@@ -16,11 +16,7 @@ namespace CompanyEmployees.Repository
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.ApplyConfiguration(new CompanyConfiguration());
-            modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
         }
-
-        public DbSet<Company>? Companies { get; set; }
-        public DbSet<Employee>? Employees { get; set; }
+        public DbSet<Questions_v>? Questions_v { get; set; }
     }
 }
