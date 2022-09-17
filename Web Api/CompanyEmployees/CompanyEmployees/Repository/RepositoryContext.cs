@@ -18,5 +18,6 @@ namespace CompanyEmployees.Repository
 
         }
         public DbSet<Questions_v>? Questions_v { get; set; }
+        public DbSet<PlayerInfo>? PlayerInfo { get; set; }
     }
 }

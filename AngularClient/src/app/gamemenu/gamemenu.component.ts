@@ -24,7 +24,7 @@ export class GameMenuComponent implements OnInit {
     .subscribe(res => {
       this.isUserAuthenticated = res;
     })
-    this.getQuestions();
+    //this.getQuestions();
   }
 
   getQuestions = () => {

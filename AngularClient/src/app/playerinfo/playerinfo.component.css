@@ -1,0 +1,45 @@
+.headclass{ 
+    height:auto; 
+    min-height:100vh; 
+    background-image:url(/assets/background.jpg); 
+    background-size:cover; 
+    background-position:center; 
+}  
+
+.menuContainer {
+    display: block;
+    position: relative;
+    width: auto;
+    /*margin: 0 850px; */
+  }
+
+ ul {
+      padding: 250px 0;
+      width: 100%;
+      position: relative;
+      text-align: center;
+      top: 20px;
+      list-style-type: none;
+    }
+
+li {
+        position: relative;
+        font-size: 20px;
+        margin-right: 30px;
+        box-sizing: border-box;
+        letter-spacing: 3px;
+        text-align: center;
+        margin: 0 0 15px 0; 
+        color:snow;
+}
+
+ a:hover {
+    background: #F0E68C;
+    width: max-content;
+    height: max-content;
+ } 
+
+a {
+      color: Snow;
+      text-decoration: none;
+    }

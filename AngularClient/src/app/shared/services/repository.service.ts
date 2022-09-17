@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http'; 
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http'; 
 import { EnvironmentUrlService } from './environment-url.service';
 import { Questions } from 'src/app/_interfaces/questions/question';
 import { Observable } from 'rxjs';
+import { PlayerInfo } from 'src/app/_interfaces/playerinfo/playerinfo';
 
 @Injectable({
   providedIn: 'root'
@@ -11,14 +12,16 @@ export class RepositoryService {
 
   constructor(private http: HttpClient, private envUrl: EnvironmentUrlService) { }
 
-  requestUrl = this.envUrl.urlAddress + '/api/questions/getquestions';
+  questiontUrl = this.envUrl.urlAddress + '/api/questions/getquestions';
+  infoUrl = this.envUrl.urlAddress + '/api/playerinfo/getplayerinfo';
 
   public GetQuestions() {
-    return this.http.get<Questions>(this.requestUrl, {headers: { Authorization: `Bearer ${localStorage.getItem("token")}`}});
+    return this.http.get<Questions>(this.questiontUrl, {headers: { Authorization: `Bearer ${localStorage.getItem("token")}`}});
+
   }
 
-  private createCompleteRoute = (route: string, envAddress: string) => {
-    return `${envAddress}/${route}`;
-  }
+  public GetPlayerInfo(): Promise<PlayerInfo>{
+    return this.http.get<PlayerInfo>(this.infoUrl, {headers: { Authorization: `Bearer ${localStorage.getItem("token")}`}}).toPromise();
 
+  }
 }

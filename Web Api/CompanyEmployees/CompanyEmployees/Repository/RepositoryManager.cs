@@ -7,6 +7,7 @@ namespace CompanyEmployees.Repository
     {
         private RepositoryContext _repositoryContext;
         private IQuestionRepository? _questionRepository;
+        private IPlayerInfoRepository? _playerInfoRepository;
 
         public RepositoryManager(RepositoryContext repositoryContext)
         {
@@ -21,6 +22,17 @@ namespace CompanyEmployees.Repository
                     _questionRepository = new QuestionRepository(_repositoryContext);
 
                 return _questionRepository;
+            }
+        }
+
+        public IPlayerInfoRepository PlayerInfo
+        {
+            get
+            {
+                if (_playerInfoRepository == null)
+                    _playerInfoRepository = new PlayerInfoRepository(_repositoryContext);
+
+                return _playerInfoRepository;
             }
         }
 

@@ -13,6 +13,9 @@ namespace CompanyEmployees
 
             CreateMap<Questions_v, QuestionDto>()
                 .ForMember(u => u.Correct_Answer, opt => opt.MapFrom(x => x.Correct_Answer));
+
+            CreateMap<PlayerInfo, PlayerInfoDto>()
+                .ForMember(u => u.UserName, opt => opt.MapFrom(x => x.UserName));
         }
     }
 }
