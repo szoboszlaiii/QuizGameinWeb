@@ -13,30 +13,15 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class GameMenuComponent implements OnInit {
   isCollapsed: boolean = false;
   isUserAuthenticated: boolean;
-  questions: Questions;
   
   constructor(private authService: AuthenticationService
-              ,private router: Router
-              ,private questionService: RepositoryService) { }
+              ,private router: Router) { }
 
   ngOnInit(): void {
     this.authService.authChanged
     .subscribe(res => {
       this.isUserAuthenticated = res;
     })
-    //this.getQuestions();
-  }
-
-  getQuestions = () => {
-    this.questionService.GetQuestions()
-    .subscribe({
-      next: (res:Questions) => {
-       this.questions = res;
-       console.log(res);
-    },
-    error: (err: HttpErrorResponse) => {
-      console.log(err.message);
-    }})
   }
 
   public logout = () => {

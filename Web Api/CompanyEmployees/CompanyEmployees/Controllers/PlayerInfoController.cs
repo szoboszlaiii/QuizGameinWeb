@@ -38,9 +38,6 @@ namespace CompanyEmployees.Controllers
         {
             try
             {
-                //var token = await HttpContext.GetTokenAsync("access_token");
-                //var readtoken = new JwtSecurityTokenHandler().ReadJwtToken(token);
-                //var currentuserid = _userManager.GetUserId(User);
                 var user = _userManager.GetUserName(User);
 
                 var playeinfo = _repository.PlayerInfo.GetPlayerInfo(x=>x.UserName == user,trackChanges: false);

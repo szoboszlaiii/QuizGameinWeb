@@ -15,9 +15,9 @@ export class RepositoryService {
   questiontUrl = this.envUrl.urlAddress + '/api/questions/getquestions';
   infoUrl = this.envUrl.urlAddress + '/api/playerinfo/getplayerinfo';
 
-  public GetQuestions() {
-    return this.http.get<Questions>(this.questiontUrl, {headers: { Authorization: `Bearer ${localStorage.getItem("token")}`}});
-
+  public GetQuestions(): Promise<Questions> {
+    return this.http.get<Questions>(this.questiontUrl, {headers: { Authorization: `Bearer ${localStorage.getItem("token")}`}}).toPromise();
+    
   }
 
   public GetPlayerInfo(): Promise<PlayerInfo>{

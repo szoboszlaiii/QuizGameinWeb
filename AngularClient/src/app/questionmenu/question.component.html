@@ -1,0 +1,22 @@
+<div class="headclass">
+  <nav class="menuContainer">
+    <h5 class="questionbox">
+      Kérdés {{questionIndex+1}} a 10-ből. Helyes válaszok: {{score}}
+      <br>
+      <br>
+      {{currentQuestion}}</h5>
+    <!-- <p class="text textbox" *ngFor="let option of currentOptions">
+      <input
+      (click)="setUserAnswer(option)"
+      type="radio"
+      value={{option}}
+      name="answer"> {{option}}
+    </p>   -->
+    <div class="textbox">
+      <div (click)="setUserAnswer(currentOptions[0])" name="answer"> A:{{currentOptions[0]}}</div>
+      <div (click)="setUserAnswer(currentOptions[1])" name="answer"> B:{{currentOptions[1]}}</div>
+      <div (click)="setUserAnswer(currentOptions[2])" name="answer"> C:{{currentOptions[2]}}</div>
+      <div (click)="setUserAnswer(currentOptions[3])" name="answer"> D:{{currentOptions[3]}}</div>
+    </div>    
+  </nav>
+</div>

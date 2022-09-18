@@ -13,6 +13,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './material.module';
 import { GameMenuComponent } from './gamemenu/gamemenu.component';
 import { PlayerInfoComponent } from './playerinfo/playerinfo.component';
+import { QuizmenuComponent } from './quizmenu/quizmenu.component';
+import { QuestionMenuComponent } from './questionmenu/question.component';
  
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { PlayerInfoComponent } from './playerinfo/playerinfo.component';
     NotFoundComponent,
     GameMenuComponent,
     PlayerInfoComponent,
+    QuizmenuComponent,
+    QuestionMenuComponent,
   ],
   imports: [
     BrowserModule,
