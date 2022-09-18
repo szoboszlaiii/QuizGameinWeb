@@ -12,7 +12,6 @@ namespace CompanyEmployees.Repository
 
         public IEnumerable<Questions_v> GetAllQuestion(bool trackChanges) =>
            FindAll(trackChanges)
-           .OrderBy(c => c.Questions)
            .ToList();
     }
 }

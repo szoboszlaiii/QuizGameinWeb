@@ -14,9 +14,11 @@ export class QuestionMenuComponent implements OnInit, DoCheck {
   isUserAuthenticated: boolean;
 
   question: Questions;
-  @Input() questionIndex: number;
+  questionIndex: number = 0;
+
   @Input() score: number;
-  @Output() answers = new EventEmitter<{user_answer: string, correct_answer: string}>();
+  @Input() quizOver: boolean;
+  @Output() answers = new EventEmitter<{user_answer: string, correct_answer: string, index: number}>();
 
   currentQuestion: string;
   currentOptions: string[];
@@ -35,17 +37,16 @@ export class QuestionMenuComponent implements OnInit, DoCheck {
 
   }
 
-  ngDoCheck(): void {
+ ngDoCheck(): void {
     this.currentQuestion = this.question[this.questionIndex].questions;
     this.currentOptions = [this.question[this.questionIndex].answer1, this.question[this.questionIndex].answer2, this.question[this.questionIndex].answer3, this.question[this.questionIndex].answer4];
-    
   }
 
   setUserAnswer(option: string) {
     this.userAnswer = option;
     this.currentCorrectAnswer = this.question[this.questionIndex].correct_Answer;
-    this.answers.emit({user_answer: this.userAnswer, correct_answer: this.currentCorrectAnswer});
     this.questionIndex++;
+    this.answers.emit({user_answer: this.userAnswer, correct_answer: this.currentCorrectAnswer, index: this.questionIndex});
   }
 
 }

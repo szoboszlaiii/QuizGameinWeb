@@ -1,4 +1,4 @@
-<app-question [questionIndex]="currentIndex"
-              (answers) ="receiveAnswers($event)"
-              [score]="score">
+<app-question (answers) ="receiveAnswers($event)"
+              [score]="score"
+              [quizOver]="quizOver">
 </app-question>

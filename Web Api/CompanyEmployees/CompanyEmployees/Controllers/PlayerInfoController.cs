@@ -51,19 +51,5 @@ namespace CompanyEmployees.Controllers
                 return StatusCode(500, "Internal server error:" + ex);
             }
         }
-
-    //    [HttpGet]
-    //    [Route("getplayerinfo")]
-    //    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-    //    public async Task<ActionResult<string>> Get()
-    //    {
-    //        var token = await HttpContext.GetTokenAsync("access_token");
-    //        var token2 = Request.Headers["Authorization"];
-    //        var readtoken = new JwtSecurityTokenHandler().ReadToken(token2);
-    //        //var user = await _userManager.FindByNameAsync(token2);
-    //        Console.WriteLine("VALAMI" + readtoken);
-    //        //Console.WriteLine("VALAMI" + user);
-    //        return Ok();
-    //    }
     }
 }
