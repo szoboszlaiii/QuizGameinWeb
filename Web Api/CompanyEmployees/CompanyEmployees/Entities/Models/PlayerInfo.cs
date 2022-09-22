@@ -4,10 +4,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CompanyEmployees.Entities.Models
 {
-    [Table("PlayerInfo_v")]
+    [Table("PlayerInfo")]
     public class PlayerInfo
     {
-        [Column("Id")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string? Id { get; set; }
 
         [Column("FirstName")]
@@ -18,6 +18,15 @@ namespace CompanyEmployees.Entities.Models
 
         [Column("UserName")]
         public string? UserName { get; set; }
+
+        [Column("Score")]
+        public int? Score { get; set; }
+
+        [Column("PlayedGames")]
+        public int? PlayedGames { get; set; }
+
+        [Column("S_G")]
+        public double? S_G { get; set; }
 
     }
 }

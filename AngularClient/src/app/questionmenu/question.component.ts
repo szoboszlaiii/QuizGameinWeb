@@ -15,6 +15,7 @@ export class QuestionMenuComponent implements OnInit, DoCheck {
 
   question: Questions;
   questionIndex: number = 0;
+  randomIndex: any[];
 
   @Input() score: number;
   @Input() quizOver: boolean;
@@ -40,6 +41,8 @@ export class QuestionMenuComponent implements OnInit, DoCheck {
  ngDoCheck(): void {
     this.currentQuestion = this.question[this.questionIndex].questions;
     this.currentOptions = [this.question[this.questionIndex].answer1, this.question[this.questionIndex].answer2, this.question[this.questionIndex].answer3, this.question[this.questionIndex].answer4];
+    this.randomIndex = this.uV(3,4);
+    
   }
 
   setUserAnswer(option: string) {
@@ -47,6 +50,15 @@ export class QuestionMenuComponent implements OnInit, DoCheck {
     this.currentCorrectAnswer = this.question[this.questionIndex].correct_Answer;
     this.questionIndex++;
     this.answers.emit({user_answer: this.userAnswer, correct_answer: this.currentCorrectAnswer, index: this.questionIndex});
+  }
+
+   public uV(limit, totalValues) {
+    const uniqueValues = new Set();
+  
+    do { uniqueValues.add(Number((Math.random() * limit).toFixed()))  }
+      while ( uniqueValues.size < totalValues)
+  
+    return Array.from(uniqueValues);
   }
 
 }

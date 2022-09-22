@@ -17,5 +17,15 @@ namespace CompanyEmployees.Repository
            FindByCondition(expression, trackChanges)
            .OrderBy(c => c.UserName)
            .ToList();
+
+        public void CreatePlayer(PlayerInfo entity) => Create(entity);
+
+        public void UpdatePlayer(PlayerInfo entity) => Update(entity);
+
+        public IEnumerable<PlayerInfo> GetAllPlayer(bool trackChanges) =>
+          FindAll(trackChanges)
+          .OrderByDescending(x => x.S_G)
+          .ToList();
+
     }
 }

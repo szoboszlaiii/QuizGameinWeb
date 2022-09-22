@@ -3,6 +3,9 @@ import { Observable } from 'rxjs/internal/Observable';
 import { interval } from 'rxjs';
 import { AuthenticationService } from './../shared/services/authentication.service';
 import { Router } from '@angular/router';
+import { RepositoryService } from '../shared/services/repository.service';
+import { PlayerInfo } from '../_interfaces/playerinfo/playerinfo';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({
@@ -20,8 +23,10 @@ export class QuizmenuComponent implements OnInit {
   correct_answer: string;
   quizOver: boolean = false;
   timer: Observable<string>;
+  playerInfo: PlayerInfo;
+
   
-  constructor(private authService: AuthenticationService, private router: Router) { }
+  constructor(private authService: AuthenticationService, private router: Router, private quizServ: RepositoryService) { }
 
  async ngOnInit() {
     this.authService.authChanged
@@ -43,12 +48,29 @@ export class QuizmenuComponent implements OnInit {
     this.MainMenu();
   }
 
-  MainMenu(){
+  async MainMenu(){
+    this.playerInfo = await this.quizServ.GetPlayerInfo()
+
+    const player: PlayerInfo = {
+      Id: this.playerInfo[0].id,
+      FirstName: this.playerInfo[0].firstName,
+      LastName: this.playerInfo[0].lastName,
+      UserName: this.playerInfo[0].userName,
+      Score: this.playerInfo[0].score + this.score,
+      PlayedGames: this.playerInfo[0].playedGames + 1,
+      S_G: (this.playerInfo[0].score + this.score)/(this.playerInfo[0].playedGames + 1),
+    };
+
      this.timer = new Observable(observer => {
         setTimeout(() => {observer.next('5');}, 5000);
      })
 
-     this.timer.subscribe(() => { this.router.navigate(['gamemenu']) });
+     this.timer.subscribe(() => { 
+      this.quizServ.UpdatePlayer(player).subscribe({
+        next: () => this.router.navigate(['gamemenu']),
+        error: (err: HttpErrorResponse) => console.log("ERROR: ", err)
+      })
+    });
 
   }
 

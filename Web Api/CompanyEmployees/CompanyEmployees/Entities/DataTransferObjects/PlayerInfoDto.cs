@@ -14,5 +14,11 @@ namespace CompanyEmployees.Entities.Models
 
         public string? UserName { get; set; }
 
+        public int? Score { get; set; }
+
+        public int? PlayedGames { get; set; }
+
+        public double? S_G { get; set; }
+
     }
 }

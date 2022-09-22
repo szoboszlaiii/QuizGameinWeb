@@ -12,6 +12,7 @@ namespace CompanyEmployees.Repository
         public RepositoryManager(RepositoryContext repositoryContext)
         {
             _repositoryContext = repositoryContext;
+            PlayerInfo = new PlayerInfoRepository(_repositoryContext);
         }
 
         public IQuestionRepository Question
@@ -34,6 +35,7 @@ namespace CompanyEmployees.Repository
 
                 return _playerInfoRepository;
             }
+            private set {;}
         }
 
         public void Save() => _repositoryContext.SaveChanges();

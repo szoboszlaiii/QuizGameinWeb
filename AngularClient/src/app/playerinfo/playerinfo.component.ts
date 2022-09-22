@@ -16,6 +16,9 @@ export class PlayerInfoComponent implements OnInit {
   playerInfo: PlayerInfo;
 
   public Name: string;
+  public Quiz: number;
+  public Score: number;
+  public S_G: number;
   
   
   constructor(private authService: AuthenticationService, private infoService: RepositoryService) { }
@@ -27,6 +30,9 @@ export class PlayerInfoComponent implements OnInit {
     })
     this.playerInfo = await this.infoService.GetPlayerInfo()
     this.Name = this.playerInfo[0].firstName + " " + this.playerInfo[0].lastName;
+    this.Quiz = this.playerInfo[0].playedGames;
+    this.Score = this.playerInfo[0].score;
+    this.S_G = this.playerInfo[0].s_G;
     
   }
 

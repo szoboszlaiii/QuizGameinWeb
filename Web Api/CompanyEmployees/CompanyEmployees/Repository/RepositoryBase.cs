@@ -1,5 +1,7 @@
 ﻿using CompanyEmployees.Contracts;
+using CompanyEmployees.Entities.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq.Expressions;
 
 namespace CompanyEmployees.Repository
@@ -30,8 +32,13 @@ namespace CompanyEmployees.Repository
 
         public void Create(T entity) => RepositoryContext.Set<T>().Add(entity);
 
-        public void Update(T entity) => RepositoryContext.Set<T>().Update(entity);
+        public void CreateRange(IEnumerable<T> entities) => RepositoryContext.Set<T>().AddRange(entities);
+
+        public void Update2(T entity) => RepositoryContext.Set<T>().Update(entity);
+
+        public void Update(T entity) => RepositoryContext.Entry(entity).State = EntityState.Modified;
 
         public void Delete(T entity) => RepositoryContext.Set<T>().Remove(entity);
+
     }
 }

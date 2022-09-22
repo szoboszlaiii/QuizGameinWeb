@@ -15,6 +15,8 @@ import { GameMenuComponent } from './gamemenu/gamemenu.component';
 import { PlayerInfoComponent } from './playerinfo/playerinfo.component';
 import { QuizmenuComponent } from './quizmenu/quizmenu.component';
 import { QuestionMenuComponent } from './questionmenu/question.component';
+import { AgGridModule } from 'ag-grid-angular';
+import { RankListComponent } from './ranklist/ranklist.component';
  
 @NgModule({
   declarations: [
@@ -26,9 +28,11 @@ import { QuestionMenuComponent } from './questionmenu/question.component';
     PlayerInfoComponent,
     QuizmenuComponent,
     QuestionMenuComponent,
+    RankListComponent
   ],
   imports: [
     BrowserModule,
+    AgGridModule,
     HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,

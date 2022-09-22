@@ -6,10 +6,10 @@
       <br>
       {{currentQuestion}}</h5>
     <div class="textbox">
-      <div (click)="setUserAnswer(currentOptions[0])" name="answer"> A:{{currentOptions[0]}}</div>
-      <div (click)="setUserAnswer(currentOptions[1])" name="answer"> B:{{currentOptions[1]}}</div>
-      <div (click)="setUserAnswer(currentOptions[2])" name="answer"> C:{{currentOptions[2]}}</div>
-      <div (click)="setUserAnswer(currentOptions[3])" name="answer"> D:{{currentOptions[3]}}</div>
+      <div (click)="setUserAnswer(currentOptions[randomIndex[0]])" name="answer"> A:{{currentOptions[randomIndex[0]]}}</div>
+      <div (click)="setUserAnswer(currentOptions[randomIndex[1]])" name="answer"> B:{{currentOptions[randomIndex[1]]}}</div>
+      <div (click)="setUserAnswer(currentOptions[randomIndex[2]])" name="answer"> C:{{currentOptions[randomIndex[2]]}}</div>
+      <div (click)="setUserAnswer(currentOptions[randomIndex[3]])" name="answer"> D:{{currentOptions[randomIndex[3]]}}</div>
     </div>    
   </nav>
   <nav *ngIf="quizOver">

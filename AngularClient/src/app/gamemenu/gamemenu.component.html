@@ -9,6 +9,10 @@
           [routerLinkActiveOptions]="{exact: true}">PlayerInfo</a>
         </li>
 
+        <li><a [routerLink]="['/ranklist']" routerLinkActive="active" 
+          [routerLinkActiveOptions]="{exact: true}">RankList</a>
+        </li>
+
         <li><a (click)="logout()" routerLinkActive="active" 
             [routerLinkActiveOptions]="{exact: true}">Logout</a>
           </li>
