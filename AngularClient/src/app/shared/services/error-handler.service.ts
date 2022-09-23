@@ -40,7 +40,7 @@ export class ErrorHandlerService implements HttpInterceptor {
   
   private handleUnauthorized = (error: HttpErrorResponse) => {
     if(this.router.url === '/authentication/login') {
-      return 'Authentication failed. Wrong Username or Password';
+      return 'Rossz felhasználó név vagy jelszó.';
     }
     else {
       this.router.navigate(['/authentication/login']);

@@ -1,12 +1,42 @@
 <div class="headclass">
-     <ul>
-         <li>Név: {{Name}}</li>
-         <li>Játszott quizek: {{Quiz}}</li>
-         <li>Pontok: {{Score}}</li>
-         <li>S/G: {{S_G}}</li>
-         <li><br><a [routerLink]="['/gamemenu']" routerLinkActive="active" 
-            [routerLinkActiveOptions]="{exact: true}">Vissza</a></li>
-      </ul>
+    <table>
+        <tr>
+            <th>Saját adatok</th>
+        </tr>
+        <tr>
+            <td>Id: </td>
+            <td>{{Id}}</td>
+        </tr>
+        <tr>
+            <td>Felhasználó: </td>
+            <td>{{UserName}}</td>
+        </tr>
+        <tr>
+            <td>Név: </td>
+            <td>{{Name}}</td>
+        </tr>
+        <tr>
+            <td>Játszott quizek: </td>
+            <td>{{Quiz}}</td>
+        </tr>
+        <tr>
+            <td>Pontok: </td>
+            <td>{{Score}}</td>
+        </tr>
+        <tr>
+            <td>Pont/Játék: </td>
+            <td>{{S_G}}</td>
+        </tr>
+        <tr>
+            <td><br></td>
+        </tr>
+        <tr>
+            <td>
+                <a [routerLink]="['/gamemenu']" routerLinkActive="active" 
+                [routerLinkActiveOptions]="{exact: true}">Vissza</a>
+            </td>
+        </tr>
+    </table>
   </div>
   
   

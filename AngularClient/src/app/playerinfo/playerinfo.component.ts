@@ -19,6 +19,8 @@ export class PlayerInfoComponent implements OnInit {
   public Quiz: number;
   public Score: number;
   public S_G: number;
+  public Id: string;
+  public UserName: string;
   
   
   constructor(private authService: AuthenticationService, private infoService: RepositoryService) { }
@@ -33,7 +35,8 @@ export class PlayerInfoComponent implements OnInit {
     this.Quiz = this.playerInfo[0].playedGames;
     this.Score = this.playerInfo[0].score;
     this.S_G = this.playerInfo[0].s_G;
-    
+    this.Id = this.playerInfo[0].id;
+    this.UserName = this.playerInfo[0].userName;
   }
 
 }

@@ -6,6 +6,16 @@
     background-position:center; 
 }  
 
+.error{
+  color:red;
+  position: absolute;
+  left: 50%; 
+  top: 25%; 
+  transform: translate (-50%, -50%);
+  border: 5px solid red;
+  padding: 5px 40px;
+}
+
 .menuContainer {
   position: absolute;
    left: 50%; 
@@ -19,6 +29,10 @@ h1{
  color:snow;
  text-align: center;
  font-size: 30px;
+}
+
+.space{
+  margin-left: 47px;
 }
 
 label{

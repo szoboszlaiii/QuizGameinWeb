@@ -46,16 +46,16 @@ export class RankListComponent implements OnInit {
         filter: true,
         editable: false,
         resizable: true,
-        width: 100,
+        width: 150,
     },
     {
-        headerName: "Score/Game",
+        headerName: "Pont/Játék",
         field: "s_G",
         sortable: true,
         filter: true,
         editable: false,
         resizable: true,
-        width: 100,
+        width: 150,
     },
 
     ];
