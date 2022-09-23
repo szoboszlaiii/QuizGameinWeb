@@ -8,12 +8,14 @@ namespace CompanyEmployees
     {
         public MappingProfile()
         {
-            CreateMap<Company, CompanyDto>()
-                .ForMember(c => c.FullAddress,
-                    opt => opt.MapFrom(x => string.Join(' ', x.Address, x.Country)));
-
             CreateMap<UserForRegistrationDto, User>()
                 .ForMember(u => u.UserName, opt => opt.MapFrom(x => x.Email));
+
+            CreateMap<Questions_v, QuestionDto>()
+                .ForMember(u => u.Correct_Answer, opt => opt.MapFrom(x => x.Correct_Answer));
+
+            CreateMap<PlayerInfo, PlayerInfoDto>()
+                .ForMember(u => u.UserName, opt => opt.MapFrom(x => x.UserName));
         }
     }
 }

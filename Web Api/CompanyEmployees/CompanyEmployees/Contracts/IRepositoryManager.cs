@@ -2,7 +2,8 @@
 {
     public interface IRepositoryManager
     {
-        ICompanyRepository Company { get; }
+        IQuestionRepository Question { get; }
+        IPlayerInfoRepository PlayerInfo { get; }   
         void Save();
     }
 }

@@ -1,0 +1,35 @@
+.headclass{ 
+    height:auto; 
+    min-height:100vh; 
+    background-image:url(/assets/gamebackground2.jpg); 
+    background-size:cover; 
+    background-position:center; 
+}  
+
+.menuContainer {
+    display: block;
+    position: relative;
+    width: auto;
+  }
+
+.questionbox{
+    color: #FFFFE0;
+    letter-spacing: 3px;
+    font-size: 20px;
+    padding-top: 150px;
+    margin: 0 0 0 30%;
+}
+.textbox { 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 170px 14.5em;
+    padding-right:411px;
+    color: #FFFFE0;
+    letter-spacing: 3px;
+    font-size: 25px;
+    margin:230px 0 300px 130px;
+} 
+
+.textbox :first-child {
+    align-self: center;
+}

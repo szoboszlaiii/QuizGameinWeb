@@ -6,22 +6,36 @@ namespace CompanyEmployees.Repository
     public class RepositoryManager : IRepositoryManager
     {
         private RepositoryContext _repositoryContext;
-        private ICompanyRepository? _companyRepository;
+        private IQuestionRepository? _questionRepository;
+        private IPlayerInfoRepository? _playerInfoRepository;
 
         public RepositoryManager(RepositoryContext repositoryContext)
         {
             _repositoryContext = repositoryContext;
+            PlayerInfo = new PlayerInfoRepository(_repositoryContext);
         }
 
-        public ICompanyRepository Company
+        public IQuestionRepository Question
         {
             get
             {
-                if (_companyRepository == null)
-                    _companyRepository = new CompanyRepository(_repositoryContext);
+                if (_questionRepository == null)
+                    _questionRepository = new QuestionRepository(_repositoryContext);
 
-                return _companyRepository;
+                return _questionRepository;
             }
+        }
+
+        public IPlayerInfoRepository PlayerInfo
+        {
+            get
+            {
+                if (_playerInfoRepository == null)
+                    _playerInfoRepository = new PlayerInfoRepository(_repositoryContext);
+
+                return _playerInfoRepository;
+            }
+            private set {;}
         }
 
         public void Save() => _repositoryContext.SaveChanges();

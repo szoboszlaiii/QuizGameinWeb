@@ -8,19 +8,19 @@
 
 .menuContainer {
     display: block;
-    position: relative;
+    position: absolute;
     width: auto;
-    margin: 0 850px;
+    margin: 0 50%;
   }
 
- ul {
+  ul {
       padding: 250px 0;
       width: 100%;
       position: relative;
       text-align: center;
       top: 35px;
       list-style-type: none;
-    }
+    } 
 
 li {
         position: relative;

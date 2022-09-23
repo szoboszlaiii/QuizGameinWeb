@@ -1,0 +1,19 @@
+.headclass{ 
+    height:auto; 
+    min-height:100vh; 
+    background-image:url(/assets/background.jpg); 
+    background-size:cover; 
+    background-position:center; 
+}  
+
+.table{
+  margin: 15% 0 0 45%;
+  position: absolute;
+ 
+
+}
+
+.button{
+    margin: 32% 0 0 45%;
+    position: absolute;
+}

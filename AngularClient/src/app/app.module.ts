@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CollapseModule } from 'ngx-bootstrap/collapse';
  
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -13,6 +12,11 @@ import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './material.module';
 import { GameMenuComponent } from './gamemenu/gamemenu.component';
+import { PlayerInfoComponent } from './playerinfo/playerinfo.component';
+import { QuizmenuComponent } from './quizmenu/quizmenu.component';
+import { QuestionMenuComponent } from './questionmenu/question.component';
+import { AgGridModule } from 'ag-grid-angular';
+import { RankListComponent } from './ranklist/ranklist.component';
  
 @NgModule({
   declarations: [
@@ -21,12 +25,16 @@ import { GameMenuComponent } from './gamemenu/gamemenu.component';
     MenuComponent,
     NotFoundComponent,
     GameMenuComponent,
+    PlayerInfoComponent,
+    QuizmenuComponent,
+    QuestionMenuComponent,
+    RankListComponent
   ],
   imports: [
     BrowserModule,
+    AgGridModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    CollapseModule.forRoot(),
     AppRoutingModule,
     MaterialModule,
   ],
@@ -37,6 +45,6 @@ import { GameMenuComponent } from './gamemenu/gamemenu.component';
       multi: true
     }
   ],
-  bootstrap: [AppComponent]
+   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,10 +4,10 @@ namespace CompanyEmployees.Entities.DataTransferObjects
 {
     public class UserForAuthenticationDto
     {
-        [Required(ErrorMessage = "Email is required.")]
+        [Required(ErrorMessage = "Email cím kötelező.")]
         public string? Email { get; set; }
 
-        [Required(ErrorMessage = "Password is required.")]
+        [Required(ErrorMessage = "Jelszó kötelező.")]
         public string? Password { get; set; }
     }
 }

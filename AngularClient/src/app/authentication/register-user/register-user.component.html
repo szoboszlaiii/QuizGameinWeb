@@ -1,57 +1,55 @@
-<div class="card headclass">
-  <div class="card-body menuContainer">
-    <h1 class="card-title">Register</h1>
-
-    <div *ngIf="showError" class="alert alert-danger" role="alert">
-      <span [innerHTML]="errorMessage"></span>
-    </div>
-
+<div class="headclass">
+  <div *ngIf="showError" class="error" role="alert">
+    <span [innerHTML]="errorMessage"></span>
+  </div>
+  <div class="menuContainer">
+    <h1>Regisztráció</h1>
     <form [formGroup]="registerForm" autocomplete="off" novalidate (ngSubmit)="registerUser(registerForm.value)">
-      <div class="mb-3 row">
-        <label for="firstName" class="col-form-label col-sm-2">First Name:</label>
-        <div class="col-md-5">
+      <div >
+        <label for="firstName" >Keresztnév:</label>
+        <div >
           <input type="text" id="firstName" formControlName="firstName" class="form-control" />
         </div>
       </div>
-      <div class="mb-3 row">
-        <label for="lastName" class="col-form-label col-sm-2">Last Name:</label>
-        <div class="col-md-5">
+      <div>
+        <label for="lastName" >Vezetéknév:</label>
+        <div >
           <input type="text" id="lastName" formControlName="lastName" class="form-control" />
         </div>
       </div>
-      <div class="mb-3 row">
-        <label for="email" class="col-form-label col-sm-2">Email:</label>
-        <div class="col-md-5">
+      <div>
+        <label for="email" >Email:</label>
+        <div >
           <input type="email" id="email" formControlName="email" class="form-control" />
         </div>
-        <div class="col-md-5">
-          <em *ngIf="validateControl('email') && hasError('email', 'email')">Please provide a valid email</em>
-          <em *ngIf="validateControl('email') && hasError('email', 'required')">Email is required</em>
+        <div >
+          <em *ngIf="validateControl('email') && hasError('email', 'email')">Hiteles email címet adj meg</em>
+          <em *ngIf="validateControl('email') && hasError('email', 'required')">Email cím kötelező</em>
         </div>
       </div>
-      <div class="mb-3 row">
-        <label for="password" class="col-form-label col-sm-2">Password:</label>
-        <div class="col-md-5">
+      <div >
+        <label for="password" >Jelszó:</label>
+        <div >
           <input type="password" id="password" formControlName="password" class="form-control" />
         </div>
-        <div class="col-md-5">
-          <em *ngIf="validateControl('password') && hasError('password', 'required')">Password is required</em>
+        <div >
+          <em *ngIf="validateControl('password') && hasError('password', 'required')">Jelszó kötelező</em>
         </div>
       </div>
-      <div class="mb-3 row">
-        <label for="confirm" class="col-form-label col-sm-2">Confirm Password:</label>
-        <div class="col-md-5">
+      <div >
+        <label for="confirm" >Jelszó újra:</label>
+        <div >
           <input type="password" id="confirm" formControlName="confirm" class="form-control" />
         </div>
-        <div class="col-md-5">
-          <em *ngIf="validateControl('confirm') && hasError('confirm', 'required')">Confirmation is required</em>
-          <em *ngIf="hasError('confirm', 'mustMatch')">Passwords must match</em>
+        <div >
+          <em *ngIf="validateControl('confirm') && hasError('confirm', 'required')">Jelszó ismétlés kötelező</em>
+          <em *ngIf="hasError('confirm', 'mustMatch')">Jelszavaknak egyezniük kell</em>
         </div>
       </div>
       <br>
-      <div class="mb-3 row">
-        <div class="col-md-1">
-          <button type="submit" class="btn btn-info" [disabled]="!registerForm.valid">Register</button>
+      <div >
+        <div >
+          <button type="submit" class="btn btn-info" [disabled]="!registerForm.valid">Regisztráció</button>
         </div>
       </div>
     </form>

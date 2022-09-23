@@ -5,6 +5,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserForRegistrationDto } from './../../_interfaces/user/userForRegistrationDto.model';
 import { AuthenticationService } from './../../shared/services/authentication.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { PlayerInfo } from 'src/app/_interfaces/playerinfo/playerinfo';
+import { RepositoryService } from 'src/app/shared/services/repository.service';
 
 @Component({
   selector: 'app-register-user',
@@ -16,8 +18,10 @@ export class RegisterUserComponent implements OnInit {
   errorMessage: string = '';
   showError: boolean;
 
-  constructor(private authService: AuthenticationService, 
-    private passConfValidator: PasswordConfirmationValidatorService, private router: Router) { }
+  constructor(private authService: AuthenticationService
+              ,private passConfValidator: PasswordConfirmationValidatorService
+              ,private router: Router
+              ,private PlayerServ: RepositoryService) { }
 
   ngOnInit(): void {
     this.registerForm = new FormGroup({
@@ -51,9 +55,27 @@ export class RegisterUserComponent implements OnInit {
       confirmPassword: formValues.confirm
     };
 
+    const player: PlayerInfo = {
+      Id: "",
+      FirstName: formValues.firstName,
+      LastName: formValues.lastName,
+      UserName: formValues.email,
+      Score: 0,
+      PlayedGames: 0,
+      S_G: 0
+    };
+
     this.authService.registerUser("api/accounts/registration", user)
     .subscribe({
-      next: (_) => this.router.navigate(["/authentication/login"]),
+      next: (_) => {
+        this.PlayerServ.CreatePlayer(player).subscribe({
+          next: () => this.router.navigate(["/authentication/login"]),
+          error: (err: HttpErrorResponse) => {
+            this.errorMessage = err.message;
+            this.showError = true;
+          }
+        })
+      },
       error: (err: HttpErrorResponse) => {
         this.errorMessage = err.message;
         this.showError = true;
